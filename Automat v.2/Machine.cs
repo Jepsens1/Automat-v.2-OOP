@@ -8,22 +8,37 @@ namespace Automat_v._2
     {
 
         public List<Item> Items { get; set; }
+        public int Money { get; set; } = 0;
 
 
         public Machine()
         {
 
         }
-        public void ShowBeerSelection()
+        public void DepositMoney(Human human)
         {
-            Console.WriteLine("Please select a item you would like");
-            Console.WriteLine("*********************");
-            Console.WriteLine("* A - Fanta");
-            Console.WriteLine("* B - Cashew nuts");
-            Console.WriteLine("* C - Bubblegum");
-            Console.WriteLine("* D - Haribo");
-            Console.WriteLine("* E - Doritos");
-            Console.WriteLine("*********************");
+            string userinput = Console.ReadLine();
+            switch (userinput)
+            {
+                case "1":
+                    Money += 5;
+                    human.Money -= 5;
+                    Console.WriteLine("You have succesfully deposited 5$");
+                    break;
+                case "2":
+                    Money += 10;
+                    human.Money -= 10;
+                    Console.WriteLine("You have succesfully deposted 10$");
+                    break;
+                case "3":
+                    Money += 15;
+                    human.Money -= 15;
+                    Console.WriteLine("You have succesfully deposited 15$");
+                    break;
+                default:
+                    Console.WriteLine("Wrong input");
+                    break;
+            }
         }
         //public void AddItemsToMachine()
         //{
@@ -33,12 +48,13 @@ namespace Automat_v._2
         //    Items.Add(new Candy("Haribo", 8));
         //    Items.Add(new Chip("Doritos", 5));
         //}
-        public void MakeSelection(string selection, Human user)
+        public void MakeSelection(Human user, string selection)
         {
+
             switch (selection)
             {
                 case "a":
-                    if (user.Money >= 5)
+                    if (Money >= 5)
                     {
                         Console.WriteLine("Thank you for choosing Fanta");
                         Console.WriteLine("Which flavour would you like?");
@@ -46,26 +62,26 @@ namespace Automat_v._2
                         string userinput = Console.ReadLine();
                         if (userinput == "1")
                         {
-                            user.Money -= 5;
+                            Money -= 5;
                             user.Items.Add(new Soda("Fanta", 5, Flavour.Cherry));
                         }
                         else if (userinput == "2")
                         {
                             user.Money -= 5;
                             user.Items.Add(new Soda("Fanta", 5, Flavour.Strawberry));
-                           
+
                         }
                         else if (userinput == "3")
                         {
-                            user.Money -= 5;
+                            Money -= 5;
                             user.Items.Add(new Soda("Fanta", 5, Flavour.Original));
-                            
+
                         }
                         else if (userinput == "4")
                         {
-                            user.Money -= 5;
+                            Money -= 5;
                             user.Items.Add(new Soda("Fanta", 5, Flavour.SugarFree));
-                            
+
                         }
                     }
                     else
@@ -74,25 +90,45 @@ namespace Automat_v._2
                     }
                     break;
                 case "b":
-                    if (user.Money >= 8)
+                    if (Money >= 8)
                     {
-                        Console.WriteLine("Thank you for choosing Cashew");
-                        user.Money -= 8;
-                        user.Items.Add(new Nut("Cashew", 8));
-                        
-                    }
-                    else
-                    {
-                        Console.WriteLine("Sorry you do not have enough money");
+
+                        Console.WriteLine("Thank you for choosing Nuts");
+                        Console.WriteLine("Which type of nuts would you like?");
+                        Console.WriteLine("1. Cashew    2. Almonds   3. ChiliNuts   4. Peanuts");
+                        string userinput = Console.ReadLine();
+                        if (userinput == "1")
+                        {
+                            Money -= 8;
+                            user.Items.Add(new Nut("Cashew", 8, NutTypes.Cashew));
+                        }
+                        else if (userinput == "2")
+                        {
+                            Money -= 8;
+                            user.Items.Add(new Nut("Almonds", 8, NutTypes.Almonds));
+                        }
+                        else if (userinput == "3")
+                        {
+                            Money -= 8;
+                            user.Items.Add(new Nut("Chili nuts", 8, NutTypes.ChiliNuts));
+                        }
+                        else if (userinput == "4")
+                        {
+                            Money -= 8;
+                            user.Items.Add(new Nut("Peanuts", 8, NutTypes.Peanuts));
+                        }
+                        else
+                        {
+                            Console.WriteLine("Sorry you do not have enough money");
+                        }
                     }
                     break;
                 case "c":
-                    if (user.Money >= 3)
+                    if (Money >= 3)
                     {
                         Console.WriteLine("Thank you for choosing Bubblegum");
-                        user.Money -= 3;
+                        Money -= 3;
                         user.Items.Add(new Gum("Bubblegum", 3));
-                        
                     }
                     else
                     {
@@ -100,12 +136,21 @@ namespace Automat_v._2
                     }
                     break;
                 case "d":
-                    if (user.Money >= 8)
+                    if (Money >= 8)
                     {
-                        Console.WriteLine("Thank you for choosing Haribo");
-                        user.Money -= 8;
-                        user.Items.Add(new Candy("Haribo", 8));
-                        
+                        Console.WriteLine("Thank you for choosing Candy");
+                        Console.WriteLine("Which type of candy would you like?");
+                        string userinput = Console.ReadLine();
+                        if (userinput == "1")
+                        {
+                            Money -= 8;
+                            user.Items.Add(new Candy("Matador mix", 8, Candytype.MatadorMix));
+                        }
+                        else if (userinput)
+                        {
+
+                        }
+
                     }
                     else
                     {
@@ -118,7 +163,7 @@ namespace Automat_v._2
                         Console.WriteLine("Thank you for choosing Doritos");
                         user.Money -= 5;
                         user.Items.Add(new Chip("Doritos", 5));
-                        
+
                     }
                     else
                     {

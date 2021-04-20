@@ -8,22 +8,27 @@ namespace Automat_v._2
     {
         Machine machine = new Machine();
         Human human = new Human(20);
+
+
         public void StartMenu()
         {
             Console.WriteLine("Please select a item you would like");
             Console.WriteLine("*********************");
             Console.WriteLine("* A - Fanta");
-            Console.WriteLine("* B - Cashew nuts");
-            Console.WriteLine("* C - Bubblegum");
-            Console.WriteLine("* D - Haribo");
+            Console.WriteLine("* B - Nuts");
+            Console.WriteLine("* C - Gum");
+            Console.WriteLine("* D - Candy");
             Console.WriteLine("* E - Doritos");
             Console.WriteLine("*********************");
         }
         public void MainMenu()
         {
+            Console.WriteLine("How much would you like to deposit?");
+            Console.WriteLine("1. 5$    2. 10$   3. 15$");
+            machine.DepositMoney(human);
             StartMenu();
             string userinput = Console.ReadLine();
-            machine.MakeSelection(userinput, human);
+            machine.MakeSelection(human, userinput);
 
 
         }

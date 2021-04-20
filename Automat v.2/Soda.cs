@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Automat_v._2
 {
-    public enum Flavour
+    enum Flavour
     {
         Cherry,
         Strawberry,

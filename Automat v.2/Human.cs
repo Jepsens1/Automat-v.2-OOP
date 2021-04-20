@@ -7,7 +7,6 @@ namespace Automat_v._2
     class Human
     {
         private List<Item> items;
-
         public List<Item> Items
         {
             get { return items; }
@@ -22,7 +21,7 @@ namespace Automat_v._2
         public Human(int _money)
         {
             Money = _money;
-            Items = items;
+            Items = new List<Item>();
             
         }
     }
