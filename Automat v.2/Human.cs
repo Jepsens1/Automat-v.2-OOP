@@ -6,9 +6,15 @@ namespace Automat_v._2
 {
     class Human
     {
-       
-        public int Money { get; set; }
+        private List<Item> items;
 
+        public List<Item> Items
+        {
+            get { return items; }
+            set { items = value; }
+        }
+
+        public int Money { get; set; }
         public Human()
         {
 
@@ -16,6 +22,8 @@ namespace Automat_v._2
         public Human(int _money)
         {
             Money = _money;
+            Items = items;
+            
         }
     }
 }
