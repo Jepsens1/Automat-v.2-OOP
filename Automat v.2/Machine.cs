@@ -40,14 +40,6 @@ namespace Automat_v._2
                     break;
             }
         }
-        //public void AddItemsToMachine()
-        //{
-        //    Items.Add(new Soda("Fanta", 5));
-        //    Items.Add(new Nut("Cashew", 8));
-        //    Items.Add(new Gum("Bubblegum", 3));
-        //    Items.Add(new Candy("Haribo", 8));
-        //    Items.Add(new Chip("Doritos", 5));
-        //}
         public void MakeSelection(Human user, string selection)
         {
 
@@ -82,6 +74,10 @@ namespace Automat_v._2
                             Money -= 5;
                             user.Items.Add(new Soda("Fanta", 5, Flavour.SugarFree));
 
+                        }
+                        else
+                        {
+                            Console.WriteLine("Wrong input");
                         }
                     }
                     else
@@ -119,8 +115,12 @@ namespace Automat_v._2
                         }
                         else
                         {
-                            Console.WriteLine("Sorry you do not have enough money");
+                            Console.WriteLine("Wrong input");
                         }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Not enough money");
                     }
                     break;
                 case "c":
@@ -140,15 +140,22 @@ namespace Automat_v._2
                     {
                         Console.WriteLine("Thank you for choosing Candy");
                         Console.WriteLine("Which type of candy would you like?");
+                        Console.WriteLine("1. Matadormix   2. Clickmix    3. Dragula");
                         string userinput = Console.ReadLine();
                         if (userinput == "1")
                         {
                             Money -= 8;
                             user.Items.Add(new Candy("Matador mix", 8, Candytype.MatadorMix));
                         }
-                        else if (userinput)
+                        else if (userinput == "2")
                         {
-
+                            Money -= 8;
+                            user.Items.Add(new Candy("ClickMix", 8, Candytype.ClickMix));
+                        }
+                        else if (userinput == "3")
+                        {
+                            Money -= 8;
+                            user.Items.Add(new Candy("Dragula", 8, Candytype.Dragula));
                         }
 
                     }
@@ -161,7 +168,7 @@ namespace Automat_v._2
                     if (user.Money >= 5)
                     {
                         Console.WriteLine("Thank you for choosing Doritos");
-                        user.Money -= 5;
+                        Money -= 5;
                         user.Items.Add(new Chip("Doritos", 5));
 
                     }
