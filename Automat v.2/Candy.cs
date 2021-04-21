@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Automat_v._2
 {
-    enum Candytype
+    enum Candytypes
     {
         MatadorMix,
         ClickMix,
@@ -13,9 +13,10 @@ namespace Automat_v._2
     }
     class Candy : Item
     {
-        public Candy(string productName, int price, Candytype type): base(productName, price)
+        public Candytypes TypeCandy { get; set; }
+        public Candy(string productName, int price, Candytypes type): base(productName, price)
         {
-
+            TypeCandy = type;
         }
     }
 }

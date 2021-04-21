@@ -13,10 +13,10 @@ namespace Automat_v._2
     }
     class Nut : Item
     {
-
-        public Nut(string productName, int price, NutTypes nut) : base(productName, price)
+        public NutTypes TypeNut { get; set; }
+        public Nut(string productName, int price, NutTypes nuts) : base(productName, price)
         {
-
+            TypeNut = nuts;
         }
     }
 }

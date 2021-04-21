@@ -10,6 +10,7 @@ namespace Automat_v._2
             
             GUI gui = new GUI();
             gui.MainMenu();
+ 
 
 
         }

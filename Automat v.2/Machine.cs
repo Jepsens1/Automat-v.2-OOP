@@ -8,10 +8,15 @@ namespace Automat_v._2
     {
 
         public List<Item> Items { get; set; }
-        public int Money { get; set; } = 0;
+        public int Money { get; set; }
 
 
         public Machine()
+        {
+
+        }
+
+        public void ReturnMoney(Human human)
         {
 
         }
@@ -145,17 +150,17 @@ namespace Automat_v._2
                         if (userinput == "1")
                         {
                             Money -= 8;
-                            user.Items.Add(new Candy("Matador mix", 8, Candytype.MatadorMix));
+                            user.Items.Add(new Candy("Matador mix", 8, Candytypes.MatadorMix));
                         }
                         else if (userinput == "2")
                         {
                             Money -= 8;
-                            user.Items.Add(new Candy("ClickMix", 8, Candytype.ClickMix));
+                            user.Items.Add(new Candy("ClickMix", 8, Candytypes.ClickMix));
                         }
                         else if (userinput == "3")
                         {
                             Money -= 8;
-                            user.Items.Add(new Candy("Dragula", 8, Candytype.Dragula));
+                            user.Items.Add(new Candy("Dragula", 8, Candytypes.Dragula));
                         }
 
                     }

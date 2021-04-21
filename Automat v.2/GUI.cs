@@ -29,8 +29,6 @@ namespace Automat_v._2
             StartMenu();
             string userinput = Console.ReadLine();
             machine.MakeSelection(human, userinput);
-
-
         }
     }
 }

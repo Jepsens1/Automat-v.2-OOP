@@ -13,9 +13,10 @@ namespace Automat_v._2
     }
     class Soda : Item
     {
-        public Soda(string productName, int price, Flavour flavour): base(productName, price)
+        public Flavour Flavour { get; set; }
+        public Soda(string productName, int price, Flavour _flavour): base(productName, price)
         {
-
+            Flavour = _flavour;
         }
     }
 }
